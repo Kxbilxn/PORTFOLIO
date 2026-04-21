@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --bg-base: #ffffff;
+    --text-base: #000000; /* Pure black for maximum contrast */
+    --text-muted: #4b5563; /* Better contrast grey (4.8:1 ratio) */
+    --border-subtle: rgba(0, 0, 0, 0.18); /* Increased visibility */
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --bg-grid-color: rgba(0, 0, 0, 0.05);
+  }
+
+  html.dark {
+    --bg-base: #1a1a1a;
+    --text-base: #ffffff; /* Pure white for maximum contrast */
+    --text-muted: #d4d4d8; /* Better contrast grey for dark mode */
+    --border-subtle: rgba(255, 255, 255, 0.2);
+    --glass-bg: rgba(30, 30, 30, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --bg-grid-color: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-base);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .border-thin {
+    border: 1px solid var(--border-subtle);
+  }
+  
+  .border-b-thin {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  
+  .border-l-thin {
+    border-left: 1px solid var(--border-subtle);
+  }
+
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, var(--bg-grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--bg-grid-color) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .text-apple-black {
+    color: var(--text-base);
+  }
+  
+  .text-apple-muted {
+    color: var(--text-muted);
+  }
+
+  .text-apple-base {
+    color: var(--text-base);
+  }
+  
+  .bg-apple-base {
+    background-color: var(--bg-base);
+  }
+}

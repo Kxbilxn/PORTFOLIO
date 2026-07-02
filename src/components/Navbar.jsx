@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Moon, Sun } from 'lucide-react';
 
 const MenuIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
@@ -13,6 +14,7 @@ const navItems = ['About', 'Skills', 'Experience', 'Projects', 'Achievements', '
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,9 +28,16 @@ const Navbar = () => {
           break;
         }
       }
+
+      // Calculate scroll progress percentage
+      const totalScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScrollHeight > 0) {
+        setScrollProgress((window.scrollY / totalScrollHeight) * 100);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -45,6 +54,11 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full z-40 glass-nav transition-all duration-300">
+      {/* Scroll Progress Indicator */}
+      <div 
+        className="absolute top-0 left-0 h-[3px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-75"
+        style={{ width: `${scrollProgress}%` }}
+      />
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <div 
           className="font-semibold text-lg tracking-tight cursor-pointer"
@@ -73,6 +87,19 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-2">
+          {/* Theme Toggle */}
+          <button
+            onClick={() => {
+              const isDark = document.documentElement.classList.toggle('dark');
+              localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }}
+            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-200 text-apple-black dark:text-apple-base"
+            aria-label="Toggle Theme"
+          >
+            <Sun className="hidden dark:block w-5 h-5" />
+            <Moon className="block dark:hidden w-5 h-5" />
+          </button>
+
           <button 
             className="md:hidden p-2 text-apple-black dark:text-apple-base"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

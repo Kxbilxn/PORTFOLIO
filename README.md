@@ -1,16 +1,51 @@
-# React + Vite
+# Kabilan Swaminathan | Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, minimalist personal portfolio showcasing expertise in **AI Engineering**, **Generative AI (GenAI)**, and **Backend Systems**. Designed with an "Apple-core" aesthetic, focusing on clean code, performance, and modern web standards.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### **Frontend**
+- **Core**: React 19, Vite 8, JavaScript (ES6+)
+- **Styling**: Tailwind CSS 4 (Custom Design System)
+- **Animations**: Framer Motion (Scroll reveal, micro-interactions), GSAP (Text splitting, smooth transitions)
+- **Icons**: Lucide React
 
-## React Compiler
+### **Backend & AI (Showcased Expertise)**
+- **GenAI**: LLM Fine-Tuning (LoRA), RAG Pipelines, LangChain, Vector Databases (ChromaDB, FAISS)
+- **Backend**: Python, FastAPI, Asyncio, RESTful APIs
+- **Database**: PostgreSQL, MySQL, Redis (Caching)
+- **Scientific**: PyTorch, Pandas, NumPy, NLP
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Key Features
 
-## Expanding the ESLint configuration
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop screens.
+- **Dynamic Animations**: Narrative-driven UI with smooth scroll reveals and interactive elements.
+- **Dark Mode Support**: Seamless theme switching with high-contrast color palettes.
+- **Accessibility**: Support for `prefers-reduced-motion` and keyboard navigation (`focus-visible`).
+- **Performance**: Built with Vite for near-instant load times and optimized assets.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Project Structure
+
+```text
+src/
+├── components/       # Reusable React components (Hero, About, Skills, etc.)
+├── assets/           # Static assets (PDFs, Images)
+├── index.css         # Tailwind V4 configuration & Design System variables
+└── App.jsx           # Main application entry point
+```
+
+## 📈 Performance & Accessibility
+
+- **Contrast**: WCAG AA/AAA compliant contrast ratios (21:1 for light theme, 20.3:1 for dark theme).
+- **Smoothness**: 60 FPS animations using GSAP and Framer Motion.
+- **SEO**: Semantic HTML5 structure for better search engine ranking.
+
+## 📬 Contact
+
+- **Email**: [rskabilan05@gmail.com](mailto:rskabilan05@gmail.com)
+- **LinkedIn**: [in/kabilansr](https://linkedin.com/in/kabilansr)
+- **GitHub**: [@Kxbilxn](https://github.com/Kxbilxn)
+
+---
+
+*Built with ❤️ by Kabilan Swaminathan*

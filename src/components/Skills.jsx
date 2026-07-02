@@ -9,11 +9,11 @@ const skillsData = [
   },
   {
     category: 'Backend & APIs',
-    items: ['Python', 'FastAPI', 'Async Python (asyncio)', 'REST APIs', 'Redis', 'Caching', 'PostgreSQL', 'MySQL', 'SQL']
+    items: ['Python', 'FastAPI', 'REST APIs', 'Caching', 'PostgreSQL', 'MySQL', 'SQL']
   },
   {
     category: 'Languages',
-    items: ['Python', 'Java', 'JavaScript', 'C', 'PHP', 'HTML/CSS']
+    items: ['Python', 'Java', 'JavaScript', 'PHP', 'HTML/CSS']
   },
   {
     category: 'Tooling',

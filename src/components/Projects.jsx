@@ -51,9 +51,12 @@ const Projects = () => {
             whileHover={{ y: -8 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
           >
-            <div className="glass-card p-8 rounded-3xl h-full flex flex-col hover:shadow-xl dark:hover:shadow-white/10 transition-all duration-300">
+            <div className="glass-card p-8 rounded-3xl h-full flex flex-col border border-black/10 dark:border-white/10 hover:border-indigo-500/30 dark:hover:border-purple-500/30 hover:shadow-2xl hover:shadow-indigo-500/5 dark:hover:shadow-purple-500/10 transition-all duration-500 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl relative overflow-hidden group/card">
+              {/* Subtle hover gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
+              
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-semibold text-apple-black tracking-tight">{project.title}</h3>
+                <h3 className="text-2xl font-semibold text-apple-black tracking-tight group-hover/card:text-indigo-600 dark:group-hover/card:text-indigo-400 transition-colors duration-300">{project.title}</h3>
                 {project.live && (
                   <span className="flex items-center space-x-1 px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300 text-xs font-semibold rounded-full uppercase tracking-wider">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse bg-current" />
@@ -63,11 +66,11 @@ const Projects = () => {
               </div>
               
               <p className="text-lg font-medium text-apple-black mb-3">{project.description}</p>
-              <p className="text-sm text-apple-base dark:text-white leading-relaxed mb-8 flex-grow">{project.details}</p>
+              <p className="text-sm text-apple-base dark:text-gray-300 leading-relaxed mb-8 flex-grow">{project.details}</p>
               
               <div className="flex flex-wrap gap-2 mt-auto">
                 {project.stack.map((tech, tIdx) => (
-                  <span key={tIdx} className="px-3 py-1 text-xs font-medium border-thin rounded-full bg-gray-100 dark:bg-gray-900 text-apple-muted transition-colors group-hover:border-gray-400 dark:group-hover:border-gray-600">
+                  <span key={tIdx} className="px-3 py-1 text-xs font-medium border border-black/5 dark:border-white/5 rounded-full bg-black/5 dark:bg-white/5 text-apple-muted transition-colors group-hover/card:border-indigo-500/30 dark:group-hover/card:border-purple-500/30 group-hover/card:text-apple-black dark:group-hover/card:text-white">
                     {tech}
                   </span>
                 ))}

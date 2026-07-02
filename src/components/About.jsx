@@ -27,7 +27,11 @@ const Counter = ({ from, to, duration = 2 }) => {
     }
   }, [isInView, from, to, duration]);
 
-  return <span ref={ref}>{typeof count === 'number' && Number.isInteger(to) ? Math.floor(count) : count}</span>;
+  const displayValue = typeof count === 'number'
+    ? (Number.isInteger(to) ? Math.floor(count) : count.toFixed(2))
+    : count;
+
+  return <span ref={ref}>{displayValue}</span>;
 };
 
 const About = () => {
@@ -35,7 +39,7 @@ const About = () => {
     { value: 2, label: 'Internships', suffix: '' },
     { value: 3, label: 'Projects shipped', suffix: '' },
     { value: 50, label: 'Day LeetCode streak', suffix: '+' },
-    { value: 8.25, label: 'CGPA', suffix: '' }
+    { value: 8.37, label: 'CGPA', suffix: '' }
   ];
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionFadeUp from './SectionFadeUp';
 import { Award, Code2, LineChart } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const achievements = [
   {
@@ -29,16 +30,21 @@ const Achievements = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {achievements.map((item, idx) => (
-          <div 
+          <motion.div 
             key={idx}
-            className="glass-card p-8 rounded-3xl hover:border-black dark:hover:border-white transition-all duration-300 flex flex-col h-full"
+            whileHover={{ y: -6, scale: 1.01 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="glass-card p-8 rounded-3xl border border-black/10 dark:border-white/10 hover:border-indigo-500/30 dark:hover:border-purple-500/30 hover:shadow-2xl hover:shadow-indigo-500/5 dark:hover:shadow-purple-500/10 transition-all duration-500 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl relative overflow-hidden group flex flex-col h-full"
           >
-            <div className="w-12 h-12 rounded-2xl bg-gray-100 dark:bg-gray-900 border-2 border-apple-black dark:border-apple-base flex items-center justify-center mb-6 shadow-sm">
+            {/* Subtle hover gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
+
+            <div className="w-12 h-12 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center mb-6 shadow-sm group-hover:border-indigo-500/40 dark:group-hover:border-purple-500/40 transition-colors duration-300">
               {item.icon}
             </div>
-            <h3 className="text-lg font-semibold text-apple-black mb-3">{item.title}</h3>
+            <h3 className="text-lg font-semibold text-apple-black mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">{item.title}</h3>
             <p className="text-sm text-apple-muted leading-relaxed">{item.details}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </SectionFadeUp>

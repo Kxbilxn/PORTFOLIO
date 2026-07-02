@@ -50,21 +50,24 @@ const Contact = () => {
         </p>
       </div>
       
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto px-6">
         {links.map((link, idx) => (
           <a
             key={idx}
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col items-center gap-4 hover:scale-105 transition-transform duration-300"
+            className="group flex items-center gap-5 p-6 rounded-3xl border border-black/10 dark:border-white/10 hover:border-indigo-500/30 dark:hover:border-purple-500/30 hover:shadow-xl hover:shadow-indigo-500/5 dark:hover:shadow-purple-500/10 transition-all duration-500 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl relative overflow-hidden"
           >
-            <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-900 border-2 border-apple-black dark:border-apple-base flex items-center justify-center text-apple-black dark:text-apple-base group-hover:bg-gray-200 dark:group-hover:bg-gray-800 transition-colors duration-300">
+            {/* Ambient hover glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
+
+            <div className="w-14 h-14 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-apple-black dark:text-apple-base group-hover:bg-indigo-500/10 dark:group-hover:bg-purple-500/10 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:border-indigo-500/20 dark:group-hover:border-purple-500/20 transition-all duration-300">
               {link.icon}
             </div>
-            <div className="flex flex-col items-center">
-              <span className="font-medium text-apple-black">{link.name}</span>
-              <span className="text-sm text-apple-muted">{link.username}</span>
+            <div className="flex flex-col text-left">
+              <span className="font-semibold text-apple-black group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">{link.name}</span>
+              <span className="text-sm text-apple-muted group-hover:text-apple-black dark:group-hover:text-white transition-colors duration-300">{link.username}</span>
             </div>
           </a>
         ))}
